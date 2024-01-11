@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
+import Header from './Header';
 import TaskList from './TaskList';
+import Notes from './Notes';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -32,10 +34,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header" style={{ backgroundColor: '#80bfff' }}>
-        <h1 style={{ color: '#ffffff' }}>Pastel Task Manager</h1>
-      </header>
-      <div className="App-body" style={{ backgroundColor: '#f2f2f2' }}>
+      <Header />
+      <div className="App-body">
         <div className="form-container">
           <div className="task-form">
             <input
@@ -61,7 +61,7 @@ function App() {
         </div>
         <div className="lists-container">
           <TaskList tasks={tasks} removeTask={removeTask} />
-          <TaskList tasks={notes} removeTask={removeNote} title="Notes" />
+          <Notes notes={notes} removeNote={removeNote} />
         </div>
       </div>
     </div>
